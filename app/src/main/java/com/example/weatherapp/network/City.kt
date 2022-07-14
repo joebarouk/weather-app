@@ -6,12 +6,12 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class City(
-    val id: Int,
+    val id: Long,
     val name: String,
     val region: String,
     val country: String,
-    val lat:Int,
-    val long:Int,
+    val lat:Double,
+    val lon:Double,
     val url:String) :Parcelable {
 
     val nrc

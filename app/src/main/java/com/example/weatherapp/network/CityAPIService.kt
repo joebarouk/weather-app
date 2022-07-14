@@ -19,13 +19,17 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface CityAPIService {
+interface CityApiService {
 
     @GET("search.json") //search.json is the path or endpoint that the method uses
     //when we call getProperties, retrofit append the endpoint search.json to the BASE_URL
-    suspend fun getCities(@Query("filter") q: String,@Query("filter") token: String = TOKEN): List<City>
+    suspend fun getCities(@Query("q") q: String,@Query("key") key: String = TOKEN): List<City>
 
-    @GET("forecast.json")
-    suspend fun getWeather(@Query("filter") type: String): List<Weather>
+   // @GET("forecast.json")
+  //  suspend fun getWeather(@Query("filter") q: String,@Query("filter") key: String = TOKEN,@Query("filter") hour:Int = 0): List<Weather>
 
+}
+
+object CityApi {
+    val retrofitService : CityApiService by lazy { retrofit.create(CityApiService::class.java) }
 }
