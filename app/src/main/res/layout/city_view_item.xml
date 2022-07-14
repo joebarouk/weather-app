@@ -7,6 +7,10 @@
         <variable
             name="city"
             type="com.example.weatherapp.network.City" />
+        <variable
+            name="clickListener"
+            type="com.example.weatherapp.city.OnClickListener"/>
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,37 +19,36 @@
 
 
         <TextView
-            android:id="@+id/city"
+            android:id="@+id/country"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
 
+            android:text="@{city.nrc}"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="London, United Kingdom"/>
-        <!--  android:text="@{city.nrc}" -->
+            tools:text="London, United Kingdom" />
 
         <TextView
             android:id="@+id/city1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
 
-            android:textSize="12sp"
+            android:text="@{city.rc}"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/city"
+            app:layout_constraintTop_toBottomOf="@+id/country"
             tools:text="United Kingdom" />
-        <!--   android:text="@{city.rc}" -->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

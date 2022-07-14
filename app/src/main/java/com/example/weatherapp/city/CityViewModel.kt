@@ -18,23 +18,20 @@ class CityViewModel : ViewModel() {
         get() = _status
 
     private val _cities = MutableLiveData<List<City>>()
-    val properties: LiveData<List<City>>
+    val cities: LiveData<List<City>>
         get() = _cities
 
     private val _get_city_from_text = MutableLiveData<String>()
     val get_city_from_text: LiveData<String>
         get() = _get_city_from_text
 
+    
 
-    fun text(){
-        getCities(_get_city_from_text.value)
-    }
-
-    private fun getCities(filter:String?){
+     fun getCities(filter:String){
         viewModelScope.launch {
             _status.value = CityApiStatus.LOADING
             try {
-                _cities.value = CityApi.retrofitService.getCities(filter!!)
+                _cities.value = CityApi.retrofitService.getCities(filter)
                 _status.value = CityApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = CityApiStatus.ERROR
