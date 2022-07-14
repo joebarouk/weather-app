@@ -14,6 +14,9 @@ data class City(
     val long:Int,
     val url:String) :Parcelable {
 
-    val what_city
-        get() = name
+    val nrc
+        get() = "$name, $region, $country"
+
+    val rc
+    get() = "$region, $country"
 }
