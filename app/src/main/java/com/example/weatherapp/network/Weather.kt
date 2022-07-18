@@ -33,6 +33,15 @@ data class Current(
     val temp
     get() = "${temp_c}°C"
 
+    val wind
+    get() = "$wind_kph"
+
+    val pressure
+    get() = "${pressure_mb}"
+
+    val humidity_string
+    get() = "$humidity"
+
 }
 
 @Parcelize
