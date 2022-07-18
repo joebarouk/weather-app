@@ -17,9 +17,6 @@ import com.example.weatherapp.databinding.FragmentCityBinding
 
 class OverviewFragment : Fragment() {
 
-    /**
-     * Lazily initialize our [OverviewViewModel].
-     */
     private val viewModel: CityViewModel by lazy {
         ViewModelProvider(this).get(CityViewModel::class.java)
     }
@@ -30,30 +27,29 @@ class OverviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         binding = FragmentCityBinding.inflate(inflater)
+        binding = FragmentCityBinding.inflate(inflater)
 
-        // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
 
-        // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
 
 
-        binding.enterCity.setOnClickListener{
+        binding.enterButton.setOnClickListener{
             onType()
         }
-/*
-        viewModel.get_city_from_text.observe(viewLifecycleOwner, Observer {
+
+
+        binding.cityList.adapter = CityListAdapter(OnClickListener {
+            viewModel.displayCityDetails(it)
+        })
+
+        viewModel.navigateToSelectedCity.observe(viewLifecycleOwner, Observer {
             if ( null != it ) {
-                viewModel.getCities(it)
+                this.findNavController().navigate(OverviewFragmentDirections.actionCityFragmentToWeatherFragment(it))
+                viewModel.displayCityDetailsComplete()
             }
         })
 
-*/
-
-        binding.cityList.adapter = CityListAdapter(OnClickListener {
-
-        })
 
         return binding.root
     }

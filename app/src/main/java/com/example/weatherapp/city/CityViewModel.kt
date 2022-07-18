@@ -21,9 +21,9 @@ class CityViewModel : ViewModel() {
     val cities: LiveData<List<City>>
         get() = _cities
 
-    private val _get_city_from_text = MutableLiveData<String>()
-    val get_city_from_text: LiveData<String>
-        get() = _get_city_from_text
+    private val _navigateToSelectedCity = MutableLiveData<City?>()
+    val navigateToSelectedCity: LiveData<City?>
+        get() = _navigateToSelectedCity
 
     
 
@@ -39,6 +39,15 @@ class CityViewModel : ViewModel() {
             }
         }
 
+    }
+
+    fun displayCityDetails(city: City) {
+        _navigateToSelectedCity.value = city
+    }
+
+
+    fun displayCityDetailsComplete() {
+        _navigateToSelectedCity.value = null
     }
 
 
