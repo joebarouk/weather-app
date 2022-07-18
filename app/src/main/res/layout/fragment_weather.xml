@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="location"
+            type="com.example.weatherapp.network.Location" />
+
+        <variable
+            name="current"
+            type="com.example.weatherapp.network.Current" />
+
+        <variable
+            name="day"
+            type="com.example.weatherapp.network.Day" />
+
+        <variable
+            name="city"
+            type="com.example.weatherapp.network.City" />
+
+
+        <variable
+            name="viewModel"
+            type="com.example.weatherapp.weather.WeatherViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/city_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="24sp"
+           android:text="@{viewModel.weather.location.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="London" />
+
+        <TextView
+            android:id="@+id/city_updated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp"
+            android:text="@{viewModel.weather.current.updated}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_name"
+            tools:text="Updated at: 2021/11/23 08:45" />
+
+        <TextView
+            android:id="@+id/city_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="125dp"
+            android:text="@{viewModel.weather.current.condition.text}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_updated"
+            tools:text="Sunny" />
+
+        <TextView
+            android:id="@+id/city_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{viewModel.weather.current.temp}"
+            android:textSize="68sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_condition"
+            tools:text="3 C" />
+
+        <TextView
+            android:id="@+id/city_min_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="48dp"
+            android:text="@{viewModel.weather.forecast.forecastday[0].day.min_temp}"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/city_max_temp"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_temp"
+            app:layout_constraintVertical_bias="0.037"
+            tools:text="Min Temp: 29 C" />
+
+        <TextView
+            android:id="@+id/city_max_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="84dp"
+            android:textSize="16sp"
+            android:text="@{viewModel.weather.forecast.forecastday[0].day.max_temp}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/city_min_temp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/city_min_temp"
+            tools:text="Max Temp: 30 C" />
+
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cityApiStatus="@{viewModel.status}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

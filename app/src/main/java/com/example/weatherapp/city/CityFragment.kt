@@ -42,18 +42,19 @@ class OverviewFragment : Fragment() {
         binding.enterButton.setOnClickListener{
             onType()
         }
-/*
-        viewModel.get_city_from_text.observe(viewLifecycleOwner, Observer {
+
+
+        binding.cityList.adapter = CityListAdapter(OnClickListener {
+            viewModel.displayCityDetails(it)
+        })
+
+        viewModel.navigateToSelectedCity.observe(viewLifecycleOwner, Observer {
             if ( null != it ) {
-                viewModel.getCities(it)
+                this.findNavController().navigate(OverviewFragmentDirections.actionCityFragmentToWeatherFragment(it))
+                viewModel.displayCityDetailsComplete()
             }
         })
 
-*/
-
-        binding.cityList.adapter = CityListAdapter(OnClickListener {
-
-        })
 
         return binding.root
     }

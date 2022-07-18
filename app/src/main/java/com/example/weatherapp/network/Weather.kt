@@ -1,4 +1,4 @@
-package com.example.weatherapp.network;
+package com.example.weatherapp.network
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
@@ -29,6 +29,9 @@ data class Current(
 ):Parcelable{
     val updated
     get() = "Updated at: $last_updated"
+
+    val temp
+    get() = "${temp_c}°C"
 
 }
 
@@ -61,7 +64,7 @@ data class Day(
     get() = "Min Temp: $mintemp_c"
 
     val max_temp
-    get() = "Min Temp: $maxtemp_c"
+    get() = "Max Temp: $maxtemp_c"
 }
 
 @Parcelize
