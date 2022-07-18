@@ -186,11 +186,10 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="4dp"
-                app:srcCompat="@android:drawable/ic_lock_power_off" />
+                app:srcCompat="@drawable/_13" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -228,11 +227,11 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
-                app:srcCompat="@android:drawable/ic_menu_compass" />
+                app:srcCompat="@drawable/_13_" />
 
             <TextView
                 android:id="@+id/textView"
