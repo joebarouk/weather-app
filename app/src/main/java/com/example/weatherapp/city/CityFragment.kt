@@ -39,7 +39,7 @@ class OverviewFragment : Fragment() {
         binding.viewModel = viewModel
 
 
-        binding.enterCity.setOnClickListener{
+        binding.enterButton.setOnClickListener{
             onType()
         }
 /*

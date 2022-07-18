@@ -86,7 +86,7 @@ data class Forecasts(
     val epoch:String,
     val day:Day,
     val astro:Astro,
-    val hour:Map<String,Any>
+   // val hour:Map<String,Any>
     ):Parcelable
 
 @Parcelize
