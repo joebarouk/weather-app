@@ -25,13 +25,9 @@ class WeatherViewModel(city: City, app:Application) : AndroidViewModel(app) {
         get() = _weather
 
 
-
-
     init {
        _selectedCity.value = city
         selectedCity.value?.let { getCityWeather(it.name) }
-
-
     }
 
     fun getCityWeather(filter:String){
@@ -42,7 +38,6 @@ class WeatherViewModel(city: City, app:Application) : AndroidViewModel(app) {
                 _status.value = CityApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = CityApiStatus.ERROR
-                //_weather.value = ArrayList()
             }
         }
     }

@@ -43,10 +43,7 @@ class CityListAdapter( val clickListener: OnClickListener ) :
         holder.bind(clickListener,getItem(position))
     }
 
-
-
-
-}
+    }
 class OnClickListener(val clickListener: (city:City) -> Unit) {
     fun onClick(city:City) = clickListener(city)
 }

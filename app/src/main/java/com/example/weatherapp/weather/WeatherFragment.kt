@@ -20,7 +20,7 @@ class WeatherFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        val cityProperty = WeatherFragmentArgs.fromBundle(arguments!!).selectedCity
+        val cityProperty = WeatherFragmentArgs.fromBundle(requireArguments()).selectedCity
         val viewModelFactory = WeatherViewModelFactory(cityProperty, application)
 
         binding.viewModel = ViewModelProvider(

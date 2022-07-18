@@ -70,10 +70,10 @@ data class Day(
     val mintemp_c: Double,
 ):Parcelable{
     val min_temp
-    get() = "Min Temp: $mintemp_c"
+    get() = "Min Temp: ${mintemp_c}°C"
 
     val max_temp
-    get() = "Max Temp: $maxtemp_c"
+    get() = "Max Temp: ${maxtemp_c}°C"
 }
 
 @Parcelize
