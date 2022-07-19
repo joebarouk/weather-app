@@ -1,7 +1,6 @@
 package com.example.weatherapp.network
 
 import android.os.Parcelable
-import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -37,7 +36,7 @@ data class Current(
     get() = "$wind_kph"
 
     val pressure
-    get() = "${pressure_mb}"
+    get() = "$pressure_mb"
 
     val humidity_string
     get() = "$humidity"
@@ -61,7 +60,6 @@ data class Forecasts(
     val date:String,
     val day:Day,
     val astro:Astro,
-    // val hour:Map<String,Any>
 ):Parcelable
 
 @Parcelize
