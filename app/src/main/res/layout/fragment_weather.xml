@@ -6,23 +6,6 @@
 
     <data>
         <variable
-            name="location"
-            type="com.example.weatherapp.network.Location" />
-
-        <variable
-            name="current"
-            type="com.example.weatherapp.network.Current" />
-
-        <variable
-            name="day"
-            type="com.example.weatherapp.network.Day" />
-
-        <variable
-            name="city"
-            type="com.example.weatherapp.network.City" />
-
-
-        <variable
             name="viewModel"
             type="com.example.weatherapp.weather.WeatherViewModel" />
     </data>
@@ -31,6 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#341A7E"
+        android:backgroundTintMode="add"
+        android:fadeScrollbars="false"
         android:padding="16dp">
 
 
