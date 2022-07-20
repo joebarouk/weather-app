@@ -33,13 +33,13 @@ data class Current(
     get() = "${temp_c}°C"
 
     val wind
-    get() = "$wind_kph"
+    get() = "$wind_kph kph"
 
     val pressure
-    get() = "$pressure_mb"
+    get() = "$pressure_mb mb"
 
     val humidity_string
-    get() = "$humidity"
+    get() = "${humidity}%"
 
 }
 
