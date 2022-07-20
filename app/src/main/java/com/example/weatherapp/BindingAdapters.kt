@@ -7,11 +7,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.city.CityApiStatus
 import com.example.weatherapp.city.CityListAdapter
 import com.example.weatherapp.network.City
+import com.example.weatherapp.network.Grid
+
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<City>?) {
     val adapter = recyclerView.adapter as CityListAdapter
     adapter.submitList(data)
+}
+
+@BindingAdapter("listWeather")
+fun bindGridRecyclerView(recyclerView: RecyclerView, data: List<Grid>?) {
+   // val adapter = recyclerView.adapter as CityListAdapter
+  //  adapter.submitList(data)
 }
 
 @BindingAdapter("cityApiStatus")

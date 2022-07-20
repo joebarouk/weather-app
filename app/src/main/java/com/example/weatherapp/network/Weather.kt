@@ -1,6 +1,7 @@
 package com.example.weatherapp.network
 
 import android.os.Parcelable
+import android.widget.ImageView
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -80,4 +81,11 @@ data class Astro(
     val sunset:String
 ):Parcelable{
 }
+
+@Parcelize
+data class Grid(
+    val photo:ImageView,
+    val property:String,
+    val property_detail:String
+):Parcelable
 
