@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.R
@@ -34,7 +35,9 @@ class OverviewFragment : Fragment() {
         binding.viewModel = viewModel
 
 
-        binding.enterButton.setOnClickListener{
+
+
+        binding.enterCity.addTextChangedListener {
             onType()
         }
 

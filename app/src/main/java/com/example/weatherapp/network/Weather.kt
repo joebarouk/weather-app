@@ -78,5 +78,6 @@ data class Day(
 data class Astro(
     val sunrise:String,
     val sunset:String
-):Parcelable
+):Parcelable{
+}
 
