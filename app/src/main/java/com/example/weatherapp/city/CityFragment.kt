@@ -52,13 +52,14 @@ class OverviewFragment : Fragment() {
                 viewModel.displayCityDetailsComplete()
             }
         })
-
-
         return binding.root
     }
 
 
-    fun onType(){
-        viewModel.getCities(binding.enterCity.text.toString())
+    fun onType() {
+        val city = binding.enterCity.text
+        if (city.length != 0) {
+            viewModel.getCities(city.toString())
+        }
     }
 }

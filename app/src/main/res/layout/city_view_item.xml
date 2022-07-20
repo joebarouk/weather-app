@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:background="@drawable/round"
-        android:onClick="@{() -> clickListener.onClick(city)}">
+        android:onClick="@{() -> clickListener.onClick(city)}"
+        android:padding="2dp">
 
 
         <TextView
