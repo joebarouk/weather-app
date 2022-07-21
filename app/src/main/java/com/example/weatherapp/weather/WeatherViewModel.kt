@@ -31,7 +31,7 @@ class WeatherViewModel(city: City, app:Application) : AndroidViewModel(app) {
     val weather_properties: LiveData<List<Grid>>
     get() = _weather_properties
 
-    
+
 
 
     init {
