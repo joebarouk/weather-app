@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.weatherapp.R
+import com.example.weatherapp.city.CityListAdapter
 import com.example.weatherapp.city.CityViewModel
 import com.example.weatherapp.databinding.FragmentCityBinding
 import com.example.weatherapp.databinding.FragmentWeatherBinding
@@ -25,6 +26,10 @@ class WeatherFragment : Fragment() {
 
         binding.viewModel = ViewModelProvider(
             this, viewModelFactory).get(WeatherViewModel::class.java)
+
+        binding.gridList.adapter = WeatherListAdapter()
+
+
 
         return binding.root
     }
