@@ -46,18 +46,7 @@ fun bindStatus(statusImageView: ImageView, status: CityApiStatus?) {
     }
 }
 
-@BindingAdapter("imageUrl")
-fun bindImage(imgView: ImageView, imgUrl: String?) {
-    imgUrl?.let {
-        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
-        Glide.with(imgView.context)
-            .load(imgUri)
-            .apply(
-                RequestOptions()
-                .placeholder(R.drawable.loading_animation))
-                    //.into(imgView)
-    }
-}
+
 @BindingAdapter("sleepImage")
 fun ImageView.setSleepImage(item: Grid?) {
     item?.let {

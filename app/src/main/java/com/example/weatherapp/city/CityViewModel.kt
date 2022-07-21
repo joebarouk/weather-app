@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.weatherapp.CityRepository.CityRepository
 import com.example.weatherapp.network.City
 import com.example.weatherapp.network.CityApi
 import kotlinx.coroutines.launch
@@ -16,30 +17,36 @@ class CityViewModel : ViewModel() {
     private val _status = MutableLiveData<CityApiStatus>()
     val status: LiveData<CityApiStatus>
         get() = _status
-
+/*
     private val _cities = MutableLiveData<List<City>>()
     val cities: LiveData<List<City>>
         get() = _cities
+
+ */
 
     private val _navigateToSelectedCity = MutableLiveData<City?>()
     val navigateToSelectedCity: LiveData<City?>
         get() = _navigateToSelectedCity
 
-    
+    private val cityRepository = CityRepository()
 
      fun getCities(filter:String){
         viewModelScope.launch {
             _status.value = CityApiStatus.LOADING
             try {
-                _cities.value = CityApi.retrofitService.getCities(filter)
+              //  _cities.value = CityApi.retrofitService.getCities(filter)
+                cityRepository.refreshVideos(filter)
                 _status.value = CityApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = CityApiStatus.ERROR
-                _cities.value = ArrayList()
+               // _cities.value = ArrayList()
             }
         }
 
     }
+
+    val cities = cityRepository.cities
+
 
     fun displayCityDetails(city: City) {
         _navigateToSelectedCity.value = city
@@ -49,6 +56,5 @@ class CityViewModel : ViewModel() {
     fun displayCityDetailsComplete() {
         _navigateToSelectedCity.value = null
     }
-
 
 }
