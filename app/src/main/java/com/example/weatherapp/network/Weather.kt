@@ -3,7 +3,10 @@ package com.example.weatherapp.network
 import android.graphics.drawable.Drawable
 import android.os.Parcelable
 import android.widget.ImageView
+import com.example.weatherapp.database.History
 import kotlinx.android.parcel.Parcelize
+
+
 
 @Parcelize
 data class Weather(
@@ -88,4 +91,5 @@ data class Grid(
     val property:String,
     val property_detail:String?
 ):Parcelable
+
 

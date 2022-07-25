@@ -14,18 +14,15 @@ abstract class WeatherDatabase : RoomDatabase() {
 
         @Volatile
         private var INSTANCE: WeatherDatabase? = null
-        
+
         fun getInstance(context: Context): WeatherDatabase {
             synchronized(this) {
-                // Copy the current value of INSTANCE to a local variable so Kotlin can smart cast.
-                // Smart cast is only available to local variables.
                 var instance = INSTANCE
-                // If instance is `null` make a new database instance.
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         WeatherDatabase::class.java,
-                        "sleep_history_database"
+                        "weather_history_database"
                     )
                         .fallbackToDestructiveMigration()
                         .build()

@@ -14,7 +14,9 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/city_view_item.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_city.xml" value="0.25" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_history.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_weather.xml" value="0.25" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/history_view_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/weather_view_item.xml" value="0.20416666666666666" />
       </map>
     </option>

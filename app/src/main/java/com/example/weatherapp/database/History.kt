@@ -9,9 +9,10 @@ import com.example.weatherapp.network.Location
 
 @Entity(tableName = "history_table")
 data class History(
-    @PrimaryKey(autoGenerate = true)
-    var dayId: Long = 0L,
-    val location: Location,
-    val current: Current,
-    val forecast: Forecast
+    @PrimaryKey
+    val date:String,
+    val name:String,
+    val url: String,
+    val maxtemp_c: String,
+    val mintemp_c: String,
 )

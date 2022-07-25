@@ -16,20 +16,19 @@ interface WeatherDatabaseDao {
     @Update
     suspend fun update(history: History)
 
-    @Query("SELECT * from history_table WHERE dayId = :key")
+    @Query("SELECT * from history_table WHERE name = :key")
     suspend fun get(key: Long): History?
 
     @Query("DELETE FROM history_table")
     suspend fun clear()
 
-
-    @Query("SELECT * FROM history_table ORDER BY dayId DESC")
+    @Query("SELECT * FROM history_table ORDER BY name DESC")
     fun getAllDays(): LiveData<List<History>>
 
-    @Query("SELECT * FROM history_table ORDER BY dayId DESC LIMIT 1")
+    @Query("SELECT * FROM history_table ORDER BY name DESC LIMIT 1")
     suspend fun getToday(): History?
 
-    @Query("SELECT * from history_table WHERE dayId = :key")
+    @Query("SELECT * from history_table WHERE name = :key")
     fun getDayWithId(key: Long): LiveData<History>
 }
 
