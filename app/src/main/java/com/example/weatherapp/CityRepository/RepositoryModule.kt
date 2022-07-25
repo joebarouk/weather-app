@@ -1,9 +1,7 @@
 package com.example.weatherapp.CityRepository
 
-import com.example.weatherapp.network.CityApiService
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
