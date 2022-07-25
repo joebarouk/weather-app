@@ -8,11 +8,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 
-class CityRepository(){
+class CityRepository():MyRepository{
 
-    val cities = MutableLiveData<List<City>>()
+    override val cities = MutableLiveData<List<City>>()
 
-    suspend fun refreshVideos(filter:String) {
+
+
+    override suspend fun refreshCities(filter:String) {
         withContext(Dispatchers.IO) {
             cities.postValue(CityApi.retrofitService.getCities(filter))
         }
