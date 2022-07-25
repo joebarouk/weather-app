@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 
 fun main()= runBlocking {
    val job: Job = GlobalScope.launch {
-        print(CityApi.retrofitService.getWeather("london").location.name)
+        println(CityApi.retrofitService.getWeather("london").location.name)
 
     }
     job.join()
