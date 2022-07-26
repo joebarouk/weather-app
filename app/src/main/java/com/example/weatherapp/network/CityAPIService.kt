@@ -32,7 +32,7 @@ interface CityApiService {
     suspend fun getWeather(@Query("q") q: String,@Query("key") key: String = TOKEN,@Query("hour") hour:Int = 0): Weather
 
     @GET("history.json")
-    suspend fun getHistory(@Query("q") q: String,@Query("date") date:String,@Query("key") key: String = TOKEN,@Query("hour") hour:Int = 0): Weather
+    suspend fun getHistory(@Query("q") q: String,@Query("dt") date:String,@Query("key") key: String = TOKEN,@Query("hour") hour:Int = 0): WeatherHistory
 
 }
 

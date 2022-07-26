@@ -16,6 +16,12 @@ data class Weather(
 ):Parcelable
 
 @Parcelize
+data class WeatherHistory(
+    val location:Location,
+    val forecast:Forecast
+):Parcelable
+
+@Parcelize
 data class Location(
     val name:String,
     val region:String,
@@ -71,6 +77,7 @@ data class Forecasts(
 data class Day(
     val maxtemp_c: Double,
     val mintemp_c: Double,
+    val condition: Condition
 ):Parcelable{
     val min_temp
     get() = "Min Temp: ${mintemp_c}°C"

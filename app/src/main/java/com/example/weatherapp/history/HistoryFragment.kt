@@ -7,26 +7,36 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.weatherapp.R
+import com.example.weatherapp.database.WeatherDatabase
+import com.example.weatherapp.databinding.FragmentHistoryBinding
+import com.example.weatherapp.databinding.FragmentWeatherBinding
+import com.example.weatherapp.weather.WeatherFragmentArgs
+import com.example.weatherapp.weather.WeatherListAdapter
+import com.example.weatherapp.weather.WeatherViewModel
+import com.example.weatherapp.weather.WeatherViewModelFactory
 
 class HistoryFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = HistoryFragment()
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        val application = requireNotNull(activity).application
+        val binding = FragmentHistoryBinding.inflate(inflater)
 
-    private lateinit var viewModel: HistoryViewModel
+        binding.lifecycleOwner = this
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_history, container, false)
-    }
+        val dataSource = WeatherDatabase.getInstance(application).weatherDatabaseDao
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HistoryViewModel::class.java)
-        // TODO: Use the ViewModel
+        val cityProperty = HistoryFragmentArgs.fromBundle(requireArguments()).selectedCity
+        val viewModelFactory = HistoryViewModelFactory(cityProperty, dataSource)
+
+        binding.viewModel = ViewModelProvider(
+           this, viewModelFactory).get(HistoryViewModel::class.java)
+
+      binding.historyList.adapter = HistoryListAdapter()
+
+
+
+        return binding.root
     }
 
 }

@@ -49,7 +49,8 @@ class OverviewFragment : Fragment() {
 
         viewModel.navigateToSelectedCity.observe(viewLifecycleOwner, Observer {
             if ( null != it ) {
-                this.findNavController().navigate(OverviewFragmentDirections.actionCityFragmentToWeatherFragment(it))
+              //  this.findNavController().navigate(OverviewFragmentDirections.actionCityFragmentToWeatherFragment(it))
+                this.findNavController().navigate(OverviewFragmentDirections.actionCityFragmentToHistoryFragment(it))
                 viewModel.displayCityDetailsComplete()
             }
         })

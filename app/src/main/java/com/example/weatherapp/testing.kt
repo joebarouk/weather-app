@@ -10,7 +10,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-/*
+
 fun main()= runBlocking {
    val job: Job = GlobalScope.launch {
         println(CityApi.retrofitService.getWeather("london").location.name)
@@ -19,12 +19,5 @@ fun main()= runBlocking {
     job.join()
 
 }
- */
 
-@RequiresApi(Build.VERSION_CODES.O)
-fun main(){
-    val current = LocalDateTime.now()
-    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-    val formatted = current.format(formatter)
-    println("Current Date and Time is: $formatted")
-}
+

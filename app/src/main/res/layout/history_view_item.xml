@@ -31,13 +31,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:text="@{history.date}"
-        tools:text="Today" />
+        tools:text="Today"/>
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="44dp"
         android:layout_height="27dp"
         android:layout_marginStart="16dp"
+        app:imageUrl="@{history.url}"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:srcCompat="@drawable/_13_" />
@@ -51,10 +53,12 @@
         android:layout_marginBottom="16dp"
         android:textColor="@color/white"
         android:textSize="16sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:text="min: 20 C" />
+        tools:text="min: 20 C"
+     android:text="@{history.mintemp_c}" />
 
     <TextView
         android:id="@+id/textView3"
@@ -63,8 +67,10 @@
         android:layout_marginStart="16dp"
         android:textColor="@color/white"
         android:textSize="16sp"
+
         app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        tools:text="max: 30C" />
+        tools:text="max: 30C"
+        android:text="@{history.maxtemp_c}" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
