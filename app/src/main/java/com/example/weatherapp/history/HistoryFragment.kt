@@ -40,8 +40,6 @@ class HistoryFragment : Fragment() {
 
       binding.historyList.adapter = HistoryListAdapter()
 
-
-
         return binding.root
     }
 

@@ -34,7 +34,7 @@
             android:paddingBottom="4dp"
             android:textAlignment="textStart"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:textColorHint="#67676C"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
