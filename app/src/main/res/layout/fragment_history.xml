@@ -20,19 +20,37 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/history_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="344dp"
+            android:layout_height="578dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
 
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/history_view_item"
-       app:listHistory="@{viewModel.days}"/>
+            app:listHistory="@{viewModel.days}"
+            tools:listitem="@layout/history_view_item" />
+
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#6104788F"
+            android:fontFamily="@font/archivo"
+            android:text="Clear"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/history_list"
+            app:layout_constraintVertical_bias="1.0"
+            android:onClick="@{() -> viewModel.onClear()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

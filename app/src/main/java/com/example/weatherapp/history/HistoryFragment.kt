@@ -14,8 +14,12 @@ import com.example.weatherapp.weather.WeatherFragmentArgs
 import com.example.weatherapp.weather.WeatherListAdapter
 import com.example.weatherapp.weather.WeatherViewModel
 import com.example.weatherapp.weather.WeatherViewModelFactory
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class HistoryFragment : Fragment() {
+
+    private lateinit var viewModel: HistoryViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -29,8 +33,10 @@ class HistoryFragment : Fragment() {
         val cityProperty = HistoryFragmentArgs.fromBundle(requireArguments()).selectedCity
         val viewModelFactory = HistoryViewModelFactory(cityProperty, dataSource)
 
-        binding.viewModel = ViewModelProvider(
-           this, viewModelFactory).get(HistoryViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this, viewModelFactory).get(HistoryViewModel::class.java)
+
+        binding.viewModel = viewModel
 
       binding.historyList.adapter = HistoryListAdapter()
 
@@ -38,5 +44,7 @@ class HistoryFragment : Fragment() {
 
         return binding.root
     }
+
+
 
 }
