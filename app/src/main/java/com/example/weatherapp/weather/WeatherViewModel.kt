@@ -32,6 +32,9 @@ class WeatherViewModel(city: City, app:Application) : AndroidViewModel(app) {
     get() = _weather_properties
 
 
+    private val _navigateToSelectedCity = MutableLiveData<City?>()
+    val navigateToSelectedCity: LiveData<City?>
+        get() = _navigateToSelectedCity
 
 
     init {
@@ -64,6 +67,16 @@ class WeatherViewModel(city: City, app:Application) : AndroidViewModel(app) {
        weather_list.add(Grid("Humidity",weather.value?.current?.humidity_string))
        weather_list.add(Grid("Created By","Weather Api"))
         _weather_properties.value = weather_list
+    }
+
+
+    fun displayHistoryDetails(city: City) {
+        _navigateToSelectedCity.value = city
+    }
+
+
+    fun displayHistoryDetailsComplete() {
+        _navigateToSelectedCity.value = null
     }
 
 

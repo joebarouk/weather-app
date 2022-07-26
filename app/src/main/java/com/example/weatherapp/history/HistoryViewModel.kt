@@ -16,6 +16,9 @@ import java.text.SimpleDateFormat;
 
 class HistoryViewModel(city: City, private val database:WeatherDatabaseDao) : ViewModel() {
 
+
+
+
     val days = database.getAllDays(city.name)
 
 
