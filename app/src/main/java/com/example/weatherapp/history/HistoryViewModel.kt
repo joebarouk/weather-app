@@ -33,7 +33,7 @@ class HistoryViewModel(city: City, private val database:WeatherDatabaseDao) : Vi
 
    fun get_history_network(filter:String) {
        viewModelScope.launch {
-          // clear()
+           clear()
            for (i in -4..0) {
                val dateFormat = SimpleDateFormat("yyyy-MM-dd");
                val cal = Calendar.getInstance();
