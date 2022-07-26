@@ -33,21 +33,25 @@ class HistoryViewModel(city: City, private val database:WeatherDatabaseDao) : Vi
 
     fun get_history_network(filter: String) {
         viewModelScope.launch {
-            for (i in -4..0) {
+            for (i in -7..0) {
                 val dateFormat = SimpleDateFormat("yyyy-MM-dd");
                 val cal = Calendar.getInstance();
                 cal.add(Calendar.DATE, i);
                 val date_string = dateFormat.format(cal.getTime())
+                try {
+                    val history = CityApi.retrofitService.getHistory(filter, date_string)
 
-                val history = CityApi.retrofitService.getHistory(filter, date_string)
+                    val date = history.forecast.forecastday[0].date
+                    val name = history.location.name
+                    val url = history.forecast.forecastday[0].day.condition.icon
+                    val maxtemp_c = history.forecast.forecastday[0].day.max_temp
+                    val mintemp_c = history.forecast.forecastday[0].day.min_temp
 
-                val date = history.forecast.forecastday[0].date
-                val name = history.location.name
-                val url = history.forecast.forecastday[0].day.condition.icon
-                val maxtemp_c = history.forecast.forecastday[0].day.max_temp
-                val mintemp_c = history.forecast.forecastday[0].day.min_temp
-
-                insert(History(date, name, url, maxtemp_c, mintemp_c))
+                    insert(History(date, name, url, maxtemp_c, mintemp_c))
+                }
+                catch (e:Exception){
+                    continue
+                }
 
             }
         }
