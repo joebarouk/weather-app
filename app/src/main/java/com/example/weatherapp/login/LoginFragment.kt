@@ -12,15 +12,19 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.core.app.ApplicationProvider.getApplicationContext
+import com.example.weatherapp.MainActivity
 import com.example.weatherapp.databinding.FragmentLoginBinding
+import com.example.weatherapp.firebase.NotificationData
+import com.example.weatherapp.firebase.PushNotification
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.firebase.messaging.FirebaseMessaging
 
+const val TOPIC = "/topics/myTopic2"
 
 class LoginFragment : Fragment() {
 
@@ -37,6 +41,9 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+      //  FirebaseMessaging.getInstance().subscribeToTopic(TOPIC)
+
         binding = FragmentLoginBinding.inflate(inflater)
 
         binding.lifecycleOwner = this
@@ -74,6 +81,14 @@ class LoginFragment : Fragment() {
             try {
                 task.getResult(ApiException::class.java)
                  viewModel.displayPageDetails()
+
+                PushNotification(
+                    NotificationData("Login Details", "SUCCESSFUL"),
+                    TOPIC
+                ).also {
+                    viewModel.sendNotification(it)
+                }
+
             } catch (e: ApiException) {
                 Toast.makeText(
                     ApplicationProvider.getApplicationContext<Context>(),
@@ -83,5 +98,13 @@ class LoginFragment : Fragment() {
             }
         }
     }
+
+/*
+    fun signOut() {
+        gsc.signOut().addOnCompleteListener {
+
+        }
+    }
+*/
 
 }

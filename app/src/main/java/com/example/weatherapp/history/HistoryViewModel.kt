@@ -7,12 +7,15 @@ import com.example.weatherapp.database.WeatherDatabaseDao
 import com.example.weatherapp.network.City
 import com.example.weatherapp.network.CityApi
 import com.example.weatherapp.network.Weather
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+
+
 
 class HistoryViewModel(city: City, private val database:WeatherDatabaseDao) : ViewModel() {
 
@@ -26,6 +29,7 @@ class HistoryViewModel(city: City, private val database:WeatherDatabaseDao) : Vi
 
 
     init {
+
         _selectedCity.value = city
         selectedCity.value?.let { get_history_network(it.name) }
     }
