@@ -40,7 +40,6 @@ class HistoryViewModel(city: City, private val database:WeatherDatabaseDao) : Vi
                 val date_string = dateFormat.format(cal.getTime())
                 try {
                     val history = CityApi.retrofitService.getHistory(filter, date_string)
-
                     val date = history.forecast.forecastday[0].date
                     val name = history.location.name
                     val url = history.forecast.forecastday[0].day.condition.icon
@@ -52,7 +51,6 @@ class HistoryViewModel(city: City, private val database:WeatherDatabaseDao) : Vi
                 catch (e:Exception){
                     continue
                 }
-
             }
         }
     }
@@ -80,7 +78,5 @@ class HistoryViewModel(city: City, private val database:WeatherDatabaseDao) : Vi
         viewModelScope.launch {
             clear()
         }
-
-
     }
 }

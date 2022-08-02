@@ -29,17 +29,9 @@ import com.example.weatherapp.databinding.HistoryViewItemBinding
  }
  }
 
- override fun onCreateViewHolder(
- parent: ViewGroup,
- viewType: Int
- ): HistoryListViewHolder {
- return HistoryListViewHolder(
- HistoryViewItemBinding.inflate(
- LayoutInflater.from(
- parent.context
- ), parent, false
- )
- )
+ override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryListViewHolder {
+ return HistoryListViewHolder(HistoryViewItemBinding.inflate(LayoutInflater.from(parent.context),
+  parent, false))
  }
 
 
