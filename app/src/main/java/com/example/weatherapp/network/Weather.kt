@@ -3,12 +3,21 @@ package com.example.weatherapp.network
 import android.graphics.drawable.Drawable
 import android.os.Parcelable
 import android.widget.ImageView
+import com.example.weatherapp.database.History
 import kotlinx.android.parcel.Parcelize
+
+
 
 @Parcelize
 data class Weather(
     val location:Location,
     val current:Current,
+    val forecast:Forecast
+):Parcelable
+
+@Parcelize
+data class WeatherHistory(
+    val location:Location,
     val forecast:Forecast
 ):Parcelable
 
@@ -68,6 +77,7 @@ data class Forecasts(
 data class Day(
     val maxtemp_c: Double,
     val mintemp_c: Double,
+    val condition: Condition
 ):Parcelable{
     val min_temp
     get() = "Min Temp: ${mintemp_c}°C"
@@ -88,4 +98,5 @@ data class Grid(
     val property:String,
     val property_detail:String?
 ):Parcelable
+
 

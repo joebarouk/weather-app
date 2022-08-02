@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.weatherapp.city.CityApiStatus
 import com.example.weatherapp.city.CityListAdapter
+import com.example.weatherapp.database.History
+import com.example.weatherapp.history.HistoryListAdapter
 import com.example.weatherapp.network.City
 import com.example.weatherapp.network.Grid
 import com.example.weatherapp.weather.WeatherListAdapter
@@ -26,6 +28,12 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<City>?) {
 @BindingAdapter("listWeather")
 fun bindGridRecyclerView(recyclerView: RecyclerView, data: List<Grid>?) {
     val adapter = recyclerView.adapter as WeatherListAdapter
+    adapter.submitList(data)
+}
+
+@BindingAdapter("listHistory")
+fun bindHistoryRecyclerView(recyclerView: RecyclerView, data: List<History>?) {
+    val adapter = recyclerView.adapter as HistoryListAdapter
     adapter.submitList(data)
 }
 
@@ -65,4 +73,15 @@ fun ImageView.setSleepImage(item: Grid?) {
 }
 
 
-
+@BindingAdapter("imageUrl")
+fun bindImage(imgView: ImageView, imgUrl: String?) {
+    imgUrl?.let {
+        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
+        Glide.with(imgView.context)
+            .load(imgUri)
+            .apply(RequestOptions()
+                .placeholder(R.drawable.loading_animation)
+                .error(R.drawable.ic_broken_image))
+            .into(imgView)
+    }
+}
