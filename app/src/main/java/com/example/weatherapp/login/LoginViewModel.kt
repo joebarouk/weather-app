@@ -33,17 +33,15 @@ class LoginViewModel : ViewModel() {
     fun sendNotification(notification: PushNotification) = CoroutineScope(Dispatchers.IO).launch {
         try {
             val response = RetrofitInstance.api.postNotification(notification)
-            println("joeeee $response")
             if(response.isSuccessful) {
                 Log.d("MainActivity", "Response: ${Gson().toJson(response)}")
-                println("hiiiiiiii")
             } else {
                 Log.e("MainActivity", response.errorBody().toString())
-                println("byeeee ${response.errorBody().toString()}")
+
             }
         } catch(e: Exception) {
             Log.e("MainActivity", e.toString())
-            println("errooooor")
+
         }
     }
 }
