@@ -1,17 +1,15 @@
 package com.example.weatherapp.city
 
-import android.annotation.SuppressLint
+
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.net.toUri
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentCityBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,7 +47,6 @@ class OverviewFragment : Fragment() {
 
         viewModel.navigateToSelectedCity.observe(viewLifecycleOwner, Observer {
             if ( null != it ) {
-              //  this.findNavController().navigate(OverviewFragmentDirections.actionCityFragmentToWeatherFragment(it))
                 this.findNavController().navigate(OverviewFragmentDirections.actionCityFragmentToWeatherFragment(it))
                 viewModel.displayCityDetailsComplete()
             }

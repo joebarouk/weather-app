@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.test.core.app.ApplicationProvider
-import com.example.weatherapp.MainActivity
+import com.example.weatherapp.TOPIC
 import com.example.weatherapp.databinding.FragmentLoginBinding
 import com.example.weatherapp.firebase.NotificationData
 import com.example.weatherapp.firebase.PushNotification
@@ -22,9 +22,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.google.firebase.messaging.FirebaseMessaging
 
-const val TOPIC = "/topics/myTopic2"
+
+//const val TOPIC = "/topics/myTopic2"
 
 class LoginFragment : Fragment() {
 
